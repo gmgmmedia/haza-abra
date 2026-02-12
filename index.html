@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magyar Házépítés Útmutató</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0e1a; font-family: system-ui, -apple-system, sans-serif; }
+    #root { max-width: 900px; margin: 0 auto; padding: 16px; }
+    .loading { color: #94a3b8; text-align: center; padding: 60px; font-size: 18px; }
+  </style>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"><div class="loading">Betöltés...</div></div>
+  <script>
+    // Fetch the JSX, strip the import line, and run it through Babel
+    fetch('house-diagrams.jsx')
+      .then(r => r.text())
+      .then(code => {
+        // Replace the ES module import with a global destructure
+        code = code.replace(/^import\s*\{[^}]*\}\s*from\s*["']react["'];?\s*/m,
+          'const { useState } = React;\n');
+        // Create a script element for Babel to transpile
+        const script = document.createElement('script');
+        script.type = 'text/babel';
+        script.setAttribute('data-type', 'module');
+        script.textContent = code + '\nconst root = ReactDOM.createRoot(document.getElementById("root"));\nroot.render(React.createElement(HouseEducation));';
+        document.body.appendChild(script);
+        // Trigger Babel to process the new script
+        window.Babel.transformScriptTags();
+      })
+      .catch(err => {
+        document.getElementById('root').innerHTML =
+          '<div class="loading">Hiba: ' + err.message + '</div>';
+      });
+  </script>
+</body>
+</html>
