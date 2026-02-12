@@ -236,7 +236,7 @@ function MechanicalDiagram() {
     <div>
       <SubTabSelector tabs={subTabs} active={subTab} onChange={(id) => { setSubTab(id); setActiveNode(null); }} />
 
-      {subTab === "system" && (
+      {subTab === "system" && (<>
         <DiagramWrapper>
           <svg viewBox="0 0 820 590" style={{ width: "100%", height: "auto", display: "block" }}>
             <defs>
@@ -281,7 +281,7 @@ function MechanicalDiagram() {
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Outunit_of_heat_pump.jpg/320px-Outunit_of_heat_pump.jpg", alt: "Hőszivattyú", caption: "Levegő-víz hőszivattyú kültéri egység" },
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Boiler_Room.jpg/320px-Boiler_Room.jpg", alt: "Kazánház", caption: "HMV tároló és fűtési rendszer" }
         ]} />
-      )}
+      </>)}
 
       {subTab === "heatpump" && (
         <DiagramWrapper>
@@ -387,7 +387,7 @@ function FoundationDiagram() {
     <div>
       <SubTabSelector tabs={subTabs} active={subTab} onChange={(id) => { setSubTab(id); setActiveEl(null); }} />
 
-      {subTab === "layers" && (
+      {subTab === "layers" && (<>
         <DiagramWrapper>
           <svg viewBox="0 0 780 430" style={{ width: "100%", height: "auto", display: "block" }}>
             <line x1="0" y1="218" x2="780" y2="218" stroke="#4ade80" strokeWidth="2" strokeDasharray="8,4" />
@@ -419,9 +419,9 @@ function FoundationDiagram() {
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Streifenfundament.jpg/320px-Streifenfundament.jpg", alt: "Sávalap", caption: "Sávalap betonozás előtt — vasalás a zsaluban" },
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Concrete_foundation.jpg/320px-Concrete_foundation.jpg", alt: "Betonalap", caption: "Kiöntött betonalap száradás közben" }
         ]} />
-      )}
+      </>)}
 
-      {subTab === "types" && (
+      {subTab === "types" && (<>
         <DiagramWrapper>
           <svg viewBox="0 0 780 420" style={{ width: "100%", height: "auto", display: "block" }}>
             <defs>
@@ -646,7 +646,7 @@ function FoundationDiagram() {
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Reinforcement_for_a_slab_foundation.jpg/320px-Reinforcement_for_a_slab_foundation.jpg", alt: "Lemezalap vasalás", caption: "Lemezalap vasszerelés — alsó-felső háló" },
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Mat_foundation.JPG/320px-Mat_foundation.JPG", alt: "Lemezalap", caption: "Betonozott lemezalap" }
         ]} />
-      )}
+      </>)}
 
       {subTab === "soil" && (
         <DiagramWrapper>
@@ -760,7 +760,7 @@ function WallDiagram() {
     <div>
       <SubTabSelector tabs={subTabs} active={subTab} onChange={(id) => { setSubTab(id); setActiveEl(null); setYtongActive(null); }} />
 
-      {subTab === "exterior" && (
+      {subTab === "exterior" && (<>
         <DiagramWrapper>
           <svg viewBox="0 0 380 480" style={{ width: "100%", maxWidth: 500, height: "auto", display: "block", margin: "0 auto" }}>
             <text x="160" y="20" fill="#94a3b8" fontSize="11" fontFamily="monospace" textAnchor="middle">← BELSŐ  |  KÜLSŐ →</text>
@@ -795,7 +795,7 @@ function WallDiagram() {
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bricklayer_at_work.jpg/320px-Bricklayer_at_work.jpg", alt: "Falazás", caption: "Kőműves falazás közben" },
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/ETICS_polystyrene_insulation.jpg/320px-ETICS_polystyrene_insulation.jpg", alt: "Hőszigetelés", caption: "Homlokzati EPS hőszigetelés felragasztva" }
         ]} />
-      )}
+      </>)}
 
       {subTab === "partition" && (
         <DiagramWrapper>
@@ -1051,7 +1051,7 @@ function RoofDiagram() {
     <div>
       <SubTabSelector tabs={subTabs} active={subTab} onChange={(id) => { setSubTab(id); setActiveEl(null); }} />
 
-      {subTab === "structure" && (
+      {subTab === "structure" && (<>
         <DiagramWrapper>
           <svg viewBox="0 0 700 420" style={{ width: "100%", height: "auto", display: "block" }}>
             {/* Walls */}
@@ -1152,7 +1152,7 @@ function RoofDiagram() {
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Roof_trusses.jpg/320px-Roof_trusses.jpg", alt: "Tetőszerkezet", caption: "Tetőszerkezet szarufákkal és fogópárokkal" },
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Roof_construction_detail.jpg/320px-Roof_construction_detail.jpg", alt: "Tető részlet", caption: "Cserépfedés és ellenléc részlet" }
         ]} />
-      )}
+      </>)}
 
       {subTab === "layers" && (
         <DiagramWrapper>
@@ -1283,7 +1283,7 @@ function WindowDiagram() {
   return (
     <div>
       <SubTabSelector tabs={subTabs} active={subTab} onChange={(id) => { setSubTab(id); setActiveEl(null); }} />
-      {subTab === "installation" && (
+      {subTab === "installation" && (<>
         <DiagramWrapper>
           <svg viewBox="0 0 700 480" style={{ width: "100%", height: "auto", display: "block" }}>
             <text x="350" y="20" fill="#94a3b8" fontSize="12" fontFamily="monospace" textAnchor="middle">ABLAK BEÉPÍTÉS — vízszintes metszet (felülnézet)</text>
@@ -1358,7 +1358,7 @@ function WindowDiagram() {
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Window_installation.jpg/320px-Window_installation.jpg", alt: "Ablakbeépítés", caption: "Háromrétegű ablak beépítés közben" },
           { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Triple_glazing_cross_section.jpg/320px-Triple_glazing_cross_section.jpg", alt: "Háromrétegű üveg", caption: "Háromrétegű üvegezés metszete" }
         ]} />
-      )}
+      </>)}
       {subTab === "mounting" && (
         <DiagramWrapper>
           <svg viewBox="0 0 700 400" style={{ width: "100%", height: "auto", display: "block" }}>
